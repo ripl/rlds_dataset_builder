@@ -7,7 +7,7 @@ import tensorflow_datasets as tfds
 import tensorflow_hub as hub
 
 
-class ExampleDataset(tfds.core.GeneratorBasedBuilder):
+class OctoData0422(tfds.core.GeneratorBasedBuilder):
     """DatasetBuilder for example dataset."""
 
     VERSION = tfds.core.Version('1.0.0')
@@ -45,7 +45,7 @@ class ExampleDataset(tfds.core.GeneratorBasedBuilder):
                         )
                     }),
                     'action': tfds.features.Tensor(
-                        shape=(8,),
+                        shape=(7,),
                         dtype=np.float32,
                         doc='Robot action, consists of [7x joint velocities, '
                             '2x gripper velocities, 1x terminate episode].',

@@ -18,8 +18,8 @@ def create_episode_leapmotion_format(file_path='0.pt', visualize=True):
 
     episode = []
     for i in range(len(data)):
-        state = np.concatenate([data[i]['gripper_pos'], data[i]['gripper_quat'], np.array([data[i]['cmd_grasp_pos']], dtype=np.float32)])
-        action = np.concatenate([data[i]['cmd_trans_vel'], data[i]['cmd_rot_vel'], np.array([data[i]['cmd_grasp_pos']], dtype=np.float32)])
+        state = np.concatenate([data[i]['gripper_pos'], data[i]['gripper_quat'], np.array([data[i]['cmd_grasp_pos']])]).astype(np.float32)
+        action = np.concatenate([data[i]['cmd_trans_vel'], data[i]['cmd_rot_vel'], np.array([data[i]['cmd_grasp_pos']])]).astype(np.float32)
         image = data[i]['camarm']
         wrist_image = data[i]['camouter']
 
@@ -61,4 +61,4 @@ if __name__ == '__main__':
     # for i in tqdm.tqdm(range(N_VAL_EPISODES)):
     #     create_fake_episode(f'data/val/episode_{i}.npy')
 
-    print('Successfully created example data!')
+    print('Successfully created octo data!')
